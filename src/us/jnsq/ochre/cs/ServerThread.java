@@ -11,6 +11,8 @@ public class ServerThread extends Thread {
     private Server server;
     private Socket socket = null;
     private OCHREProtocol protocol;
+    private PrintWriter out;
+    private BufferedReader in;
 
     public ServerThread(Socket socket, Server server) {
         super("ServerThread");
@@ -22,8 +24,8 @@ public class ServerThread extends Thread {
     @Override
     public void run() {
         try {
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            BufferedReader in = new BufferedReader(
+            out = new PrintWriter(socket.getOutputStream(), true);
+            in = new BufferedReader(
                     new InputStreamReader(socket.getInputStream()));
             protocol = new OCHREProtocol();
             String input, output;
@@ -43,6 +45,10 @@ public class ServerThread extends Thread {
     }
     
     public void setState(int state) {
+        out.println(protocol.setState(state));
+    }
+    
+    public void silentSetState(int state) {
         protocol.setState(state);
     }
     
@@ -55,5 +61,6 @@ public class ServerThread extends Thread {
     }
     
     private void send(String data) {
+        out.println(data + "\n");
     }
 }

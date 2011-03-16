@@ -16,6 +16,7 @@ public class OCHREProtocol {
     public static final int DENIED = 3;
     public static final int YOUR_TURN = 4;
     public static final int NOT_YOUR_TURN = 5;
+    public static final int GAME_OVER = 6;
     
     private int state;
 
