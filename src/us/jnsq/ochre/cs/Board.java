@@ -9,4 +9,7 @@ import java.util.ArrayList;
 public class Board {
     private ArrayList<ArrayList<String>> board;
 
+    public Board() {
+        board = new ArrayList<ArrayList<String>>(20);
+    }
 }
