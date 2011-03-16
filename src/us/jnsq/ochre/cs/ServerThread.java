@@ -28,8 +28,15 @@ public class ServerThread extends Thread {
             protocol = new OCHREProtocol();
             String input, output;
             
-            output = protocol.setState(OCHREProtocol.JOINED);
-            
+            out.print(protocol.setState(OCHREProtocol.JOINED) + "\n");
+            if (protocol.identify(in.readLine())) {
+                out.print(protocol.setState(OCHREProtocol.ACCEPTED));
+            } else {
+                out.print(protocol.setState(OCHREProtocol.DENIED) + "\n\n");
+                out.close();
+                in.close();
+                socket.close();
+            }
         } catch (IOException e) {
             //
         }
@@ -37,5 +44,16 @@ public class ServerThread extends Thread {
     
     public void setState(int state) {
         protocol.setState(state);
+    }
+    
+    public void listen() {
+        //
+    }
+    
+    private String readLine() {
+        return "";
+    }
+    
+    private void send(String data) {
     }
 }

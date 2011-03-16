@@ -50,4 +50,12 @@ public class OCHREProtocol {
                 
         }
     }
+    
+    public boolean identify(String identityString) {
+        return true;
+    }
+    
+    public String handleInput(String input) {
+        return "";
+    }
 }
