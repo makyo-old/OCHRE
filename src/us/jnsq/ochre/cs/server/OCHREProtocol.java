@@ -3,7 +3,9 @@
  * and open the template in the editor.
  */
 
-package us.jnsq.ochre.cs;
+package us.jnsq.ochre.cs.server;
+
+import us.jnsq.ochre.cs.board.Player;
 
 /**
  *
@@ -52,7 +54,7 @@ public class OCHREProtocol {
         }
     }
     
-    public boolean identify(String identityString) {
+    public boolean identify(String identityString, Player player) {
         return true;
     }
     
