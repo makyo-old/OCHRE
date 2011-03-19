@@ -29,7 +29,6 @@ public class ServerClient {
             in = new BufferedReader(
                     new InputStreamReader(socket.getInputStream()));
             protocol = new OCHREProtocol();
-            String input, output;
             
             out.print(protocol.setState(OCHREProtocol.JOINED) + "\n");
             if (protocol.identify(in.readLine(), getPlayer())) {
@@ -56,7 +55,7 @@ public class ServerClient {
     }
     
     public void listen() {
-        //
+        
     }
     
     private String readLine() {

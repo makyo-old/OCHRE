@@ -74,4 +74,32 @@ public class Board {
         
         return toReturn.toString();
     }
+    
+    public String boardForPlayer(Player p) {
+        StringBuilder toReturn = new StringBuilder();
+        
+        for (int z = 0; z < board.length; z++) {
+            toReturn.append("[");
+            for (int y = 0; y < board[z].length; y++) {
+                toReturn.append("[");
+                for (int x = 0; x < board[z][y].length; x++) {
+                    if (board[z][y][x] instanceof Player) {
+                        if ((Player)board[z][y][x] == p) {
+                            toReturn.append("you");
+                        } else {
+                            toReturn.append("player " + ((Player)board[z][y][x]).getId());
+                        }
+                    } else if (board[z][y][x] != null) {
+                        toReturn.append(board[z][y][x].toString());
+                    }
+                    toReturn.append(x == board[z][y].length - 1 ? "" : ",");
+                }
+                toReturn.append("]").append(y == board[z].length - 1 ? "" : ",");
+            }
+            toReturn.append("]").append(z == board.length - 1 ? "" : ",");
+        }
+        
+        return toReturn.toString();
+        
+    }
 }

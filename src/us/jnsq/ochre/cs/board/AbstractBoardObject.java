@@ -53,5 +53,8 @@ public abstract class AbstractBoardObject {
     public void setZ(int z) {
         this.z = z;
     }
+    
+    @Override
+    public abstract String toString();
 
 }

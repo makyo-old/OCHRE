@@ -26,4 +26,8 @@ public class Goal extends AbstractBoardObject {
         this.amount = amount;
     }
 
+    @Override
+    public String toString() {
+        return "goal " + amount;
+    }
 }

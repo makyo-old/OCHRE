@@ -50,4 +50,8 @@ public class Player extends AbstractBoardObject {
         this.score = score;
     }
 
+    @Override
+    public String toString() {
+        return "player " + id + ": " + username;
+    }
 }
